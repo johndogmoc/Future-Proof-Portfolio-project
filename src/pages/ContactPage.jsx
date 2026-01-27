@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { useTheme } from '../context/ThemeContext'
+import PageRobots from '../components/PageRobots'
 import './ContactPage.css'
 
 const ContactPage = () => {
@@ -228,6 +229,8 @@ const ContactPage = () => {
             Send Message →
           </motion.button>
         </motion.form>
+
+        <PageRobots page="contact" />
       </div>
     </div>
   )

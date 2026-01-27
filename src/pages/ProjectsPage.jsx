@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import ProjectModal from '../components/ProjectModal'
+import PageRobots from '../components/PageRobots'
 import './ProjectsPage.css'
 
 const ProjectsPage = () => {
@@ -174,6 +175,8 @@ const ProjectsPage = () => {
           </motion.div>
         ))}
       </motion.div>
+
+      <PageRobots page="projects" />
 
       <ProjectModal
         project={selectedProject}
