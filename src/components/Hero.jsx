@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import './Hero.css'
 import profileImage from '../assets/profile.png'
-import PageRobots from './PageRobots'
 
 const Hero = () => {
   const containerVariants = {
@@ -193,8 +192,6 @@ const Hero = () => {
             <span className="skill-badge">REST API</span>
             <span className="skill-badge">Vite</span>
           </div>
-
-          <PageRobots page="hero" />
         </div>
       </div>
     </section>

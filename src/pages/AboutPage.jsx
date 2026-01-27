@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import './AboutPage.css'
-import PageRobots from '../components/PageRobots'
 
 const AboutPage = () => {
   const skills = ['React', 'Node.js', 'JavaScript', 'MongoDB', 'Express', 'Firebase', 'Tailwind CSS', 'Git']
@@ -140,8 +139,6 @@ const AboutPage = () => {
         >
           Get In Touch →
         </motion.a>
-
-        <PageRobots page="about" />
       </motion.div>
     </div>
   )

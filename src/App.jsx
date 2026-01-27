@@ -5,7 +5,6 @@ import Statistics from './components/Statistics'
 import Testimonials from './components/Testimonials'
 import Certificates from './components/Certificates'
 import ScrollProgress from './components/ScrollProgress'
-import AnimatedRobots from './components/AnimatedRobots'
 import ProjectsPage from './pages/ProjectsPage'
 import ExperiencePage from './pages/ExperiencePage'
 import AboutPage from './pages/AboutPage'
@@ -20,7 +19,6 @@ function App() {
       <div className="app">
         <Navbar />
         <ScrollProgress />
-        <AnimatedRobots />
         <Routes>
           <Route path="/" element={
             <>

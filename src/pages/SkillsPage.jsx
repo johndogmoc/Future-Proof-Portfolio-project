@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import PageRobots from '../components/PageRobots'
 import './SkillsPage.css'
 
 const SkillsPage = () => {
@@ -178,8 +177,6 @@ const SkillsPage = () => {
         >
           Start a Project →
         </motion.a>
-
-        <PageRobots page="skills" />
       </motion.div>
     </div>
   )
