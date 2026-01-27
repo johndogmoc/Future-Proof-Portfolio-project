@@ -1,0 +1,22 @@
+/* Light Mode Support - Add to end of About.css */
+[data-theme="light"] .about {
+    background: var(--color-bg-secondary);
+}
+
+[data-theme="light"] .service-card {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .service-card:hover {
+    background: rgba(168, 85, 247, 0.05);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .service-icon {
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+}
+
+[data-theme="light"] .service-btn {
+    color: var(--color-accent-purple);
+}

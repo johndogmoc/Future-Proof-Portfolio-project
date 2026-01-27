@@ -1,0 +1,31 @@
+/* Light Mode Support for About Section */
+[data-theme="light"] .about {
+    background: var(--color-bg-secondary);
+}
+
+[data-theme="light"] .about::before {
+    background: radial-gradient(circle, rgba(103, 126, 234, 0.08) 0%, transparent 70%);
+}
+
+[data-theme="light"] .service-card {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .service-card:hover {
+    background: rgba(168, 85, 247, 0.08);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .service-icon {
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+    color: white;
+}
+
+[data-theme="light"] .service-btn {
+    color: var(--color-accent-purple);
+}
+
+[data-theme="light"] .service-btn:hover {
+    color: var(--color-accent-pink);
+}

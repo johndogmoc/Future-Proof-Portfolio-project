@@ -1,0 +1,294 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background:
+    radial-gradient(circle at top left, rgba(168, 85, 247, 0.12), transparent 55%),
+    radial-gradient(circle at top right, rgba(192, 132, 252, 0.12), transparent 55%),
+    rgba(10, 10, 15, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 1.1rem 0;
+  transition: background var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal), transform var(--transition-normal);
+}
+
+.navbar.scrolled {
+  background:
+    radial-gradient(circle at top, rgba(168, 85, 247, 0.2), transparent 60%),
+    rgba(10, 10, 15, 0.98);
+  box-shadow: var(--shadow-md), var(--shadow-glow-purple);
+  transform: translateY(-2px);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  animation: gradient-shift 4.5s ease infinite;
+  background-size: 200% 200%;
+}
+
+.nav-logo:hover {
+  transform: scale(1.05);
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color var(--transition-normal), transform var(--transition-normal);
+  position: relative;
+  padding: 0.5rem 0;
+  display: inline-block;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: -0.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--gradient-blue-red);
+  transition: width var(--transition-normal);
+}
+
+.nav-link:hover {
+  color: var(--color-accent-cyan);
+  transform: translateY(-1px);
+}
+
+.nav-link:hover::before {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: var(--color-accent-cyan);
+  text-shadow: 0 0 18px rgba(168, 85, 247, 0.5);
+}
+
+.nav-link.active::before {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-toggle {
+  background: var(--glass-bg);
+  border: 2px solid var(--glass-border);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(10px);
+}
+
+.theme-toggle:hover {
+  background: var(--glass-bg);
+  border-color: var(--color-accent-cyan);
+  transform: rotate(15deg) scale(1.1);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.35);
+}
+
+/* Theme toggle icon wrapper and animations */
+.theme-icon-wrapper {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sun-icon,
+.moon-icon {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  color: var(--color-text-primary);
+  stroke: currentColor;
+  fill: none;
+}
+
+.sun-icon {
+  color: #fbbf24;
+  /* Golden yellow for sun */
+  filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.6)) drop-shadow(0 0 12px rgba(251, 191, 36, 0.4));
+}
+
+.moon-icon {
+  color: #a855f7;
+  filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.6)) drop-shadow(0 0 12px rgba(168, 85, 247, 0.4));
+}
+
+/* Dark mode - show moon */
+.theme-icon-wrapper.dark-mode .moon-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.theme-icon-wrapper.dark-mode .sun-icon {
+  opacity: 0;
+  transform: rotate(180deg) scale(0);
+}
+
+/* Light mode - show sun */
+.theme-icon-wrapper.light-mode .sun-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.theme-icon-wrapper.light-mode .moon-icon {
+  opacity: 0;
+  transform: rotate(-180deg) scale(0);
+}
+
+/* Pulse animation on click */
+@keyframes theme-pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.theme-toggle:active .theme-icon-wrapper {
+  animation: theme-pulse 0.3s ease;
+}
+
+
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  gap: 5px;
+  z-index: 1001;
+}
+
+.hamburger {
+  width: 28px;
+  height: 3px;
+  background: var(--gradient-blue-red);
+  border-radius: 3px;
+  transition: all var(--transition-normal);
+}
+
+.hamburger.open:nth-child(1) {
+  transform: rotate(45deg) translate(9px, 9px);
+}
+
+.hamburger.open:nth-child(2) {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.hamburger.open:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    max-width: 350px;
+    height: 100vh;
+    background:
+      radial-gradient(circle at top, rgba(56, 189, 248, 0.16), transparent 60%),
+      rgba(10, 10, 15, 0.98);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    padding: 2rem;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+    border-left: 1px solid var(--glass-border);
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-link {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .nav-container {
+    padding: 0 1rem;
+  }
+
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .nav-menu {
+    gap: 1.5rem;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+}
