@@ -48,7 +48,7 @@ const ContactPage = () => {
 
       // Check if EmailJS is configured
       const serviceId = 'service_xo96o29'
-      const templateId = '1xv6qce'
+      const templateId = 'template_rmeymln'
       const publicKey = 'HWRVl4_afZYFgFdff'
 
       const isEmailJSConfigured =
