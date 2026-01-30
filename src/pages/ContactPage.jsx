@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { useTheme } from '../context/ThemeContext'
+import emailjs from '@emailjs/browser'
 import './ContactPage.css'
 
 const ContactPage = () => {
@@ -13,6 +14,7 @@ const ContactPage = () => {
   })
   const [errors, setErrors] = useState({})
   const [successMessage, setSuccessMessage] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const validateForm = () => {
     const newErrors = {}
@@ -37,14 +39,40 @@ const ContactPage = () => {
     }
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const newErrors = validateForm()
-    
+
     if (Object.keys(newErrors).length === 0) {
-      setSuccessMessage('Message sent successfully! I\'ll get back to you soon.')
-      setFormData({ name: '', email: '', subject: '', message: '' })
-      setTimeout(() => setSuccessMessage(''), 5000)
+      setIsSubmitting(true)
+
+      try {
+        // EmailJS configuration
+        // Replace these with your actual EmailJS credentials from https://www.emailjs.com/
+        const serviceId = 'YOUR_SERVICE_ID'  // Get from EmailJS dashboard
+        const templateId = 'YOUR_TEMPLATE_ID'  // Get from EmailJS dashboard
+        const publicKey = 'YOUR_PUBLIC_KEY'  // Get from EmailJS dashboard
+
+        const templateParams = {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: 'john.dogmoc@urios.edu.ph'
+        }
+
+        await emailjs.send(serviceId, templateId, templateParams, publicKey)
+
+        setSuccessMessage('✅ Message sent successfully! I\'ll get back to you soon.')
+        setFormData({ name: '', email: '', subject: '', message: '' })
+        setTimeout(() => setSuccessMessage(''), 5000)
+      } catch (error) {
+        console.error('EmailJS Error:', error)
+        setSuccessMessage('❌ Failed to send message. Please email me directly at john.dogmoc@urios.edu.ph')
+        setTimeout(() => setSuccessMessage(''), 7000)
+      } finally {
+        setIsSubmitting(false)
+      }
     } else {
       setErrors(newErrors)
     }
@@ -94,12 +122,12 @@ const ContactPage = () => {
           animate="visible"
         >
           <h2>Contact Information</h2>
-          
+
           <motion.div className="info-item" variants={itemVariants}>
             <div className="info-icon">📧</div>
             <div className="info-content">
               <h3>Email</h3>
-              <a href="mailto:john@example.com">john@example.com</a>
+              <a href="mailto:john.dogmoc@urios.edu.ph">john.dogmoc@urios.edu.ph</a>
             </div>
           </motion.div>
 
@@ -224,8 +252,9 @@ const ContactPage = () => {
             className="submit-btn"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            disabled={isSubmitting}
           >
-            Send Message →
+            {isSubmitting ? 'Sending...' : 'Send Message →'}
           </motion.button>
         </motion.form>
       </div>
