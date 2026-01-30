@@ -1,4 +1,8 @@
 .about {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: var(--spacing-xl) 0;
   background: var(--color-bg-primary);
   position: relative;
@@ -52,6 +56,11 @@
 .service-card {
   padding: 2.5rem 2rem;
   border-radius: var(--radius-lg);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-lg);
   transition: all var(--transition-normal);
   cursor: pointer;
   position: relative;
@@ -75,8 +84,10 @@
 }
 
 .service-card:hover {
-  box-shadow: var(--shadow-lg);
-  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: var(--shadow-3d), var(--neon-glow);
+  border-color: var(--color-accent-purple);
+  background: var(--gradient-glass-hover);
 }
 
 .service-icon {

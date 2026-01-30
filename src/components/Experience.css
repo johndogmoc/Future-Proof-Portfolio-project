@@ -1,7 +1,12 @@
 .experience {
-  padding: 5rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--spacing-xl) 0;
+  background: var(--color-bg-primary);
+  position: relative;
+  overflow: hidden;
 }
 
 .timeline {
@@ -49,18 +54,21 @@
 
 .experience-card {
   flex: 1;
-  background: rgba(30, 41, 59, 0.5);
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  border-radius: 12px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-lg);
   padding: 2rem;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal);
 }
 
 .experience-card:hover {
-  background: rgba(30, 41, 59, 0.8);
-  border-color: rgba(99, 102, 241, 0.5);
-  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.1);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-3d), var(--neon-glow);
+  border-color: var(--color-accent-purple);
+  background: var(--gradient-glass-hover);
 }
 
 .experience-header {

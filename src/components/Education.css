@@ -1,7 +1,12 @@
 .education {
-  padding: 5rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--spacing-xl) 0;
+  background: var(--color-bg-primary);
+  position: relative;
+  overflow: hidden;
 }
 
 .education-container {
@@ -11,15 +16,25 @@
 }
 
 .education-card {
-  background: rgba(30, 41, 59, 0.5);
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  border-radius: 16px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-lg);
   padding: 2rem;
   display: flex;
   gap: 2rem;
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
+}
+
+.education-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-3d), var(--neon-glow);
+  border-color: var(--color-accent-purple);
+  background: var(--gradient-glass-hover);
 }
 
 .education-card::before {
@@ -29,7 +44,7 @@
   left: 0;
   width: 4px;
   height: 100%;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: var(--gradient-blue-red);
 }
 
 .education-icon {

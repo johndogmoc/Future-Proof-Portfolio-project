@@ -57,10 +57,7 @@ const Skills = () => {
           viewport={{ once: true }}
           className="section-header"
         >
-          <span className="section-label">MY EXPERTISE</span>
-          <h2 className="section-title">
-            Skills & <span className="gradient-text">Expertise</span>
-          </h2>
+          <h2 className="section-title">My Skills</h2>
         </motion.div>
 
         <motion.div

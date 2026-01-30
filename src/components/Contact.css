@@ -98,13 +98,18 @@
 .contact-form {
     padding: 2.5rem;
     border-radius: var(--radius-lg);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-lg);
     transition: all var(--transition-normal);
     position: relative;
 }
 
 .contact-form:hover {
-    box-shadow: var(--shadow-lg);
-    background: rgba(255, 255, 255, 0.08);
+    box-shadow: var(--shadow-3d);
+    border-color: var(--color-accent-purple);
 }
 
 .success-message {
@@ -138,10 +143,11 @@
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--glass-border);
     color: var(--color-text-primary);
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius-md);
     font-family: inherit;
     transition: all var(--transition-normal);
+    width: 100%;
 }
 
 .form-group input:focus,
@@ -150,6 +156,7 @@
     background: rgba(255, 255, 255, 0.1);
     border-color: var(--color-accent-cyan);
     box-shadow: 0 0 15px rgba(168, 85, 247, 0.25);
+    transform: translateY(-2px);
 }
 
 .form-group input::placeholder,

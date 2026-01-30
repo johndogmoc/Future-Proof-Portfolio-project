@@ -13,6 +13,8 @@ const ProjectsPage = () => {
       fullDescription: 'A comprehensive e-commerce platform built with React and Node.js, featuring real-time inventory management, secure payment processing with Stripe, user authentication, and admin dashboard for managing products and orders.',
       tech: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Express', 'JWT'],
       image: '🛍️',
+      category: 'What I Know',
+      categoryColor: '#10b981',
       features: [
         'User authentication and authorization',
         'Product search and filtering',
@@ -30,6 +32,8 @@ const ProjectsPage = () => {
       fullDescription: 'A real-time task management application that enables teams to collaborate efficiently. Built with React and Firebase, it provides instant synchronization across multiple users, project organization, and progress tracking.',
       tech: ['React', 'Firebase', 'Tailwind CSS', 'Redux', 'Firestore'],
       image: '✓',
+      category: 'What I Learned',
+      categoryColor: '#3b82f6',
       features: [
         'Real-time collaboration',
         'Task creation and assignment',
@@ -64,6 +68,8 @@ const ProjectsPage = () => {
       fullDescription: 'A stunning portfolio website showcasing projects and skills with smooth animations and modern design. Built with React and Framer Motion for eye-catching visual effects and excellent user experience.',
       tech: ['React', 'Framer Motion', 'Vite', 'CSS3', 'Responsive Design'],
       image: '🎨',
+      category: 'What I\'m Aspiring To',
+      categoryColor: '#8b5cf6',
       features: [
         'Smooth page transitions',
         'Interactive animations',
@@ -156,6 +162,18 @@ const ProjectsPage = () => {
             onKeyDown={(e) => e.key === 'Enter' && setSelectedProject(project)}
             aria-label={`View details for ${project.title}`}
           >
+            {project.category && (
+              <div
+                className="big-three-badge"
+                style={{
+                  background: `linear-gradient(135deg, ${project.categoryColor}22, ${project.categoryColor}44)`,
+                  borderColor: `${project.categoryColor}66`
+                }}
+              >
+                <span className="badge-icon">⭐</span>
+                {project.category}
+              </div>
+            )}
             <div className="project-icon">{project.image}</div>
             <h3>{project.title}</h3>
             <p>{project.description}</p>

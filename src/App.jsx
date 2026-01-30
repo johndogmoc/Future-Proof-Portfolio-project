@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Statistics from './components/Statistics'
+import CurrentlyLearning from './components/CurrentlyLearning'
 import Testimonials from './components/Testimonials'
 import Certificates from './components/Certificates'
 import ScrollProgress from './components/ScrollProgress'
@@ -24,6 +25,7 @@ function App() {
             <>
               <Hero />
               <Statistics />
+              <CurrentlyLearning />
               <Testimonials />
               <Certificates />
             </>

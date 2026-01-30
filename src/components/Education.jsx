@@ -37,50 +37,51 @@ const Education = () => {
 
   return (
     <section id="education" className="education">
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <h2 className="section-title">Education</h2>
-
+      <div className="container">
         <motion.div
-          className="education-container"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          {education.map((edu, index) => (
-            <motion.div
-              key={index}
-              className="education-card"
-              variants={itemVariants}
-              whileHover={{ y: -5, boxShadow: '0 10px 30px rgba(99, 102, 241, 0.3)' }}
-            >
-              <div className="education-icon">🎓</div>
-              <div className="education-content">
-                <h3>{edu.degree}</h3>
-                <h4>{edu.institution}</h4>
-                <span className="education-year">{edu.year}</span>
-                {edu.gpa && <p className="education-gpa">GPA: {edu.gpa}</p>}
-                <p className="education-description">{edu.description}</p>
-                {edu.achievements && edu.achievements.length > 0 && (
-                  <div className="education-achievements">
-                    <strong>Achievements:</strong>
-                    <ul>
-                      {edu.achievements.map((achievement, i) => (
-                        <li key={i}>{achievement}</li>
-                      ))}
-                    </ul>
+          <h2 className="section-title">Education</h2>
+
+          <motion.div
+            className="education-container"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {education.map((edu, index) => (
+              <motion.div
+                key={index}
+                className="education-card"
+                variants={itemVariants}
+                whileHover={{ y: -5 }}
+              >
+                <div className="education-icon">🎓</div>
+                <div className="education-content">
+                  <div className="education-header">
+                    <h3>{edu.degree}</h3>
+                    <span className="education-year">{edu.year}</span>
                   </div>
-                )}
-              </div>
-            </motion.div>
-          ))}
+                  <p className="education-institution">{edu.institution}</p>
+                  <p className="education-description">{edu.description}</p>
+                  <div className="education-meta">
+                    <span className="gpa">GPA: {edu.gpa}</span>
+                    <div className="achievements">
+                      {edu.achievements.map((achievement, i) => (
+                        <span key={i} className="achievement-tag">{achievement}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   )
 }

@@ -9,6 +9,8 @@ const ExperiencePage = () => {
       duration: '2022 - Present',
       location: 'Remote (Based in Libertad, Butuan City, Philippines)',
       description: 'Led development of 10+ full-stack applications using React and Node.js. Mentored 3+ junior developers and conducted code reviews.',
+      technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS', 'Docker'],
+      icon: '💻',
       responsibilities: [
         'Led development of 10+ full-stack applications using React and Node.js',
         'Mentored 3+ junior developers and conducted code reviews',
@@ -30,6 +32,8 @@ const ExperiencePage = () => {
       duration: '2020 - 2022',
       location: 'Remote',
       description: 'Built and maintained e-commerce platforms for 5+ clients. Developed REST APIs and microservices architecture.',
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Redux', 'MongoDB'],
+      icon: '🛍️',
       responsibilities: [
         'Built and maintained e-commerce platforms for 5+ clients',
         'Developed REST APIs and microservices architecture',
@@ -51,6 +55,8 @@ const ExperiencePage = () => {
       duration: '2019 - 2020',
       location: 'Remote',
       description: 'Developed frontend features using React and Vue.js. Created responsive designs for mobile and desktop.',
+      technologies: ['Vue.js', 'React', 'JavaScript', 'CSS3', 'Git'],
+      icon: '🚀',
       responsibilities: [
         'Developed frontend features using React and Vue.js',
         'Created responsive designs for mobile and desktop',
@@ -72,6 +78,8 @@ const ExperiencePage = () => {
       duration: '2018 - 2019',
       location: 'Remote',
       description: 'Built responsive websites using HTML, CSS, and JavaScript. Assisted in designing user interfaces.',
+      technologies: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'jQuery'],
+      icon: '🎨',
       responsibilities: [
         'Built responsive websites using HTML, CSS, and JavaScript',
         'Assisted in designing user interfaces',
@@ -94,14 +102,14 @@ const ExperiencePage = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
       },
     },
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   }
 
   return (
@@ -117,7 +125,7 @@ const ExperiencePage = () => {
       </motion.div>
 
       <motion.div
-        className="experience-timeline-full"
+        className="experience-grid"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -125,47 +133,29 @@ const ExperiencePage = () => {
         {experienceData.map((exp, index) => (
           <motion.div
             key={index}
-            className="experience-item-full"
+            className="experience-card-modern"
             variants={itemVariants}
+            whileHover={{ y: -5 }}
           >
-            <div className="timeline-marker"></div>
-            <motion.div
-              className="experience-card-full"
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="experience-header">
-                <div>
-                  <h3>{exp.position}</h3>
-                  <p className="company">{exp.company}</p>
-                  <p className="location">📍 {exp.location}</p>
-                </div>
-                <span className="duration">{exp.duration}</span>
+            <div className="card-icon">{exp.icon}</div>
+            
+            <div className="card-content">
+              <h3>{exp.position}</h3>
+              <p className="card-subtitle">{exp.company}</p>
+              <p className="card-duration">{exp.duration}</p>
+              
+              <p className="card-description">{exp.description}</p>
+              
+              <div className="card-tags">
+                {exp.technologies.map((tech, i) => (
+                  <span key={i} className="tech-pill">{tech}</span>
+                ))}
               </div>
-
-              <p className="description">{exp.description}</p>
-
-              <div className="responsibilities">
-                <h4>Key Responsibilities:</h4>
-                <ul>
-                  {exp.responsibilities.map((resp, i) => (
-                    <li key={i}>{resp}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="achievements">
-                <h4>Achievements:</h4>
-                <ul className="achievements-list">
-                  {exp.achievements.map((achievement, i) => (
-                    <li key={i}>
-                      <span className="achievement-icon">⭐</span>
-                      {achievement}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
+              
+              <button className="view-details-btn">
+                View Details <span>→</span>
+              </button>
+            </div>
           </motion.div>
         ))}
       </motion.div>
@@ -179,20 +169,28 @@ const ExperiencePage = () => {
         <h2>Experience Summary</h2>
         <div className="summary-stats">
           <div className="stat">
-            <h3>5+</h3>
-            <p>Years of Experience</p>
-          </div>
-          <div className="stat">
-            <h3>20+</h3>
+            <div className="stat-icon">📊</div>
+            <h3>45+</h3>
             <p>Projects Completed</p>
+            <span className="stat-sub">Delivered successfully</span>
           </div>
           <div className="stat">
-            <h3>15+</h3>
-            <p>Clients Worked With</p>
+            <div className="stat-icon">⚡</div>
+            <h3>5+</h3>
+            <p>Years Experience</p>
+            <span className="stat-sub">Professional development</span>
           </div>
           <div className="stat">
-            <h3>100%</h3>
+            <div className="stat-icon">🚀</div>
+            <h3>20+</h3>
+            <p>Technologies</p>
+            <span className="stat-sub">Proficient & learning</span>
+          </div>
+          <div className="stat">
+            <div className="stat-icon">⭐</div>
+            <h3>98%</h3>
             <p>Client Satisfaction</p>
+            <span className="stat-sub">Very satisfied clients</span>
           </div>
         </div>
       </motion.div>

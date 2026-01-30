@@ -27,6 +27,57 @@
   overflow: hidden;
 }
 
+/* Big Three Badge */
+.big-three-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid;
+  font-size: 0.75rem;
+  font-weight: 700;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  z-index: 2;
+  animation: badgePulse 3s ease-in-out infinite;
+}
+
+.badge-icon {
+  font-size: 0.9rem;
+  animation: starSpin 4s linear infinite;
+}
+
+@keyframes badgePulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+@keyframes starSpin {
+
+  0%,
+  90%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  95% {
+    transform: rotate(360deg);
+  }
+}
+
+
 .project-card-full::before {
   content: '';
   position: absolute;

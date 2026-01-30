@@ -61,70 +61,72 @@ const Experience = () => {
 
   return (
     <section id="experience" className="experience">
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <h2 className="section-title">Experience</h2>
+      <div className="container">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="section-title">Experience</h2>
 
-        <div className="timeline">
-          <motion.div
-            className="timeline-container"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                className="timeline-item"
-                variants={itemVariants}
-              >
-                <div className="timeline-marker"></div>
-                <div className="timeline-content">
-                  <motion.div
-                    className="experience-card"
-                    whileHover={{ y: -5, boxShadow: '0 10px 30px rgba(99, 102, 241, 0.3)' }}
-                  >
-                    <div className="experience-header">
-                      <div>
-                        <h3>{exp.title}</h3>
-                        <h4>{exp.company}</h4>
-                        <div className="experience-meta">
-                          <span className="experience-period">{exp.period}</span>
-                          <span className="experience-location">📍 {exp.location}</span>
+          <div className="timeline">
+            <motion.div
+              className="timeline-container"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              {experiences.map((exp, index) => (
+                <motion.div
+                  key={index}
+                  className="timeline-item"
+                  variants={itemVariants}
+                >
+                  <div className="timeline-marker"></div>
+                  <div className="timeline-content">
+                    <motion.div
+                      className="experience-card"
+                      whileHover={{ y: -5, boxShadow: '0 10px 30px rgba(99, 102, 241, 0.3)' }}
+                    >
+                      <div className="experience-header">
+                        <div>
+                          <h3>{exp.title}</h3>
+                          <h4>{exp.company}</h4>
+                          <div className="experience-meta">
+                            <span className="experience-period">{exp.period}</span>
+                            <span className="experience-location">📍 {exp.location}</span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <p className="experience-description">{exp.description}</p>
-                    <div className="experience-tech">
-                      <strong>Technologies:</strong>
-                      <div className="tech-tags">
-                        {exp.technologies.map((tech, i) => (
-                          <span key={i} className="tech-tag">{tech}</span>
-                        ))}
-                      </div>
-                    </div>
-                    {exp.achievements && exp.achievements.length > 0 && (
-                      <div className="experience-achievements">
-                        <strong>Key Achievements:</strong>
-                        <ul>
-                          {exp.achievements.map((achievement, i) => (
-                            <li key={i}>{achievement}</li>
+                      <p className="experience-description">{exp.description}</p>
+                      <div className="experience-tech">
+                        <strong>Technologies:</strong>
+                        <div className="tech-tags">
+                          {exp.technologies.map((tech, i) => (
+                            <span key={i} className="tech-tag">{tech}</span>
                           ))}
-                        </ul>
+                        </div>
                       </div>
-                    )}
-                  </motion.div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </motion.div>
+                      {exp.achievements && exp.achievements.length > 0 && (
+                        <div className="experience-achievements">
+                          <strong>Key Achievements:</strong>
+                          <ul>
+                            {exp.achievements.map((achievement, i) => (
+                              <li key={i}>{achievement}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </motion.div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
     </section>
   )
 }
