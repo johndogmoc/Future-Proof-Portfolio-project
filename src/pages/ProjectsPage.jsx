@@ -23,8 +23,7 @@ const ProjectsPage = () => {
         'Order tracking system',
         'Admin dashboard for inventory management'
       ],
-      liveUrl: 'https://example-ecommerce.com',
-      githubUrl: 'https://github.com/johndogmoc/ecommerce'
+      githubUrl: 'https://github.com/johndogmoc/ecommerce-platform'
     },
     {
       title: 'Task Management App',
@@ -42,8 +41,7 @@ const ProjectsPage = () => {
         'Notifications and reminders',
         'Mobile responsive design'
       ],
-      liveUrl: 'https://task-manager-app.com',
-      githubUrl: 'https://github.com/johndogmoc/task-manager'
+      githubUrl: 'https://github.com/johndogmoc/task-management-app'
     },
     {
       title: 'Weather Dashboard',
@@ -59,7 +57,6 @@ const ProjectsPage = () => {
         'Weather alerts',
         'Multi-city support'
       ],
-      liveUrl: 'https://weather-dash.app',
       githubUrl: 'https://github.com/johndogmoc/weather-dashboard'
     },
     {
@@ -73,13 +70,13 @@ const ProjectsPage = () => {
       features: [
         'Smooth page transitions',
         'Interactive animations',
-        'Dark/Light theme toggle',
+        'Glassmorphism design',
         'Responsive mobile design',
         'SEO optimized',
         'Performance optimized'
       ],
-      liveUrl: 'https://johndogmoc.com',
-      githubUrl: 'https://github.com/johndogmoc/portfolio'
+      liveUrl: 'https://vercel.com/john-dogmocs-projects/future-proof-portfolio-project',
+      githubUrl: 'https://github.com/johndogmoc/Future-Proof-Portfolio-project'
     },
     {
       title: 'Social Media App',
@@ -95,8 +92,7 @@ const ProjectsPage = () => {
         'Media uploads',
         'Notification system'
       ],
-      liveUrl: 'https://social-media-app.com',
-      githubUrl: 'https://github.com/johndogmoc/social-app'
+      githubUrl: 'https://github.com/johndogmoc/social-media-app'
     },
     {
       title: 'Analytics Dashboard',
@@ -112,8 +108,7 @@ const ProjectsPage = () => {
         'User permissions',
         'Dashboard customization'
       ],
-      liveUrl: 'https://analytics-dash.com',
-      githubUrl: 'https://github.com/johndogmoc/analytics'
+      githubUrl: 'https://github.com/johndogmoc/analytics-dashboard'
     }
   ]
 

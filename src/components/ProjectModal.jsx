@@ -26,7 +26,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
             transition={{ duration: 0.3 }}
             onClick={(e) => e.stopPropagation()}
           >
-            <button 
+            <button
               className="modal-close"
               onClick={onClose}
               aria-label="Close modal"
@@ -64,20 +64,22 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                   </ul>
                 </div>
 
-                {project.liveUrl && (
+                {(project.liveUrl || project.githubUrl) && (
                   <div className="detail-section">
                     <h3>Links</h3>
                     <div className="project-links">
-                      <motion.a
-                        href={project.liveUrl}
-                        className="link-btn live"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        View Live →
-                      </motion.a>
+                      {project.liveUrl && (
+                        <motion.a
+                          href={project.liveUrl}
+                          className="link-btn live"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          View Live →
+                        </motion.a>
+                      )}
                       {project.githubUrl && (
                         <motion.a
                           href={project.githubUrl}
