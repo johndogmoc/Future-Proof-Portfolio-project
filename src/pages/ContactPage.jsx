@@ -46,31 +46,53 @@ const ContactPage = () => {
     if (Object.keys(newErrors).length === 0) {
       setIsSubmitting(true)
 
-      try {
-        // EmailJS configuration
-        // Replace these with your actual EmailJS credentials from https://www.emailjs.com/
-        const serviceId = 'YOUR_SERVICE_ID'  // Get from EmailJS dashboard
-        const templateId = 'YOUR_TEMPLATE_ID'  // Get from EmailJS dashboard
-        const publicKey = 'YOUR_PUBLIC_KEY'  // Get from EmailJS dashboard
+      // Check if EmailJS is configured
+      const serviceId = 'YOUR_SERVICE_ID'
+      const templateId = 'YOUR_TEMPLATE_ID'
+      const publicKey = 'YOUR_PUBLIC_KEY'
 
-        const templateParams = {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          to_email: 'john.dogmoc@urios.edu.ph'
+      const isEmailJSConfigured =
+        serviceId !== 'YOUR_SERVICE_ID' &&
+        templateId !== 'YOUR_TEMPLATE_ID' &&
+        publicKey !== 'YOUR_PUBLIC_KEY'
+
+      if (isEmailJSConfigured) {
+        // Use EmailJS if configured
+        try {
+          const templateParams = {
+            from_name: formData.name,
+            from_email: formData.email,
+            subject: formData.subject,
+            message: formData.message,
+            to_email: 'john.dogmoc@urios.edu.ph'
+          }
+
+          await emailjs.send(serviceId, templateId, templateParams, publicKey)
+
+          setSuccessMessage('✅ Message sent successfully! I\'ll get back to you soon.')
+          setFormData({ name: '', email: '', subject: '', message: '' })
+          setTimeout(() => setSuccessMessage(''), 5000)
+        } catch (error) {
+          console.error('EmailJS Error:', error)
+          setSuccessMessage('❌ Failed to send message. Please email me directly at john.dogmoc@urios.edu.ph')
+          setTimeout(() => setSuccessMessage(''), 7000)
+        } finally {
+          setIsSubmitting(false)
         }
+      } else {
+        // Use mailto fallback (opens user's email client)
+        const subject = encodeURIComponent(formData.subject)
+        const body = encodeURIComponent(
+          `Name: ${formData.name}\n` +
+          `Email: ${formData.email}\n\n` +
+          `Message:\n${formData.message}`
+        )
 
-        await emailjs.send(serviceId, templateId, templateParams, publicKey)
+        window.location.href = `mailto:john.dogmoc@urios.edu.ph?subject=${subject}&body=${body}`
 
-        setSuccessMessage('✅ Message sent successfully! I\'ll get back to you soon.')
+        setSuccessMessage('✅ Opening your email client... Please send the email from there!')
         setFormData({ name: '', email: '', subject: '', message: '' })
         setTimeout(() => setSuccessMessage(''), 5000)
-      } catch (error) {
-        console.error('EmailJS Error:', error)
-        setSuccessMessage('❌ Failed to send message. Please email me directly at john.dogmoc@urios.edu.ph')
-        setTimeout(() => setSuccessMessage(''), 7000)
-      } finally {
         setIsSubmitting(false)
       }
     } else {
