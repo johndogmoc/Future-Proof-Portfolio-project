@@ -135,7 +135,7 @@ const ContactPage = () => {
             <div className="info-icon">📱</div>
             <div className="info-content">
               <h3>Phone</h3>
-              <a href="tel:+1234567890">+1 (234) 567-890</a>
+              <a href="tel:+639292281529">(+63) 09292281529</a>
             </div>
           </motion.div>
 
