@@ -47,9 +47,9 @@ const ContactPage = () => {
       setIsSubmitting(true)
 
       // Check if EmailJS is configured
-      const serviceId = 'YOUR_SERVICE_ID'
-      const templateId = 'YOUR_TEMPLATE_ID'
-      const publicKey = 'YOUR_PUBLIC_KEY'
+      const serviceId = 'service_xo96o29'
+      const templateId = '1xv6qce'
+      const publicKey = 'HWRVl4_afZYFgFdff'
 
       const isEmailJSConfigured =
         serviceId !== 'YOUR_SERVICE_ID' &&
